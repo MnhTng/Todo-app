@@ -1,0 +1,262 @@
+/*todo ========== Light - Dark Mode ========== */
+#light-dark-mode {
+    position: relative;
+    left: 90%;
+    top: 1rem;
+    width: 3rem;
+    height: 3rem
+}
+
+#light-dark-mode:hover {
+    cursor: pointer;
+}
+
+div[mode="sun"] {
+    position: absolute;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(243, 235, 18);
+    box-shadow: inset 1rem -0.4rem 30px rgb(255, 91, 42),
+        0 0 40px 10px rgb(255, 67, 67),
+        0 0 60px 20px rgb(255, 98, 0),
+        0 0 100px 50px rgba(255, 98, 0, 0.6);
+    transition: all 0.3s ease;
+    animation: 2s ease-in-out infinite alternate both sun;
+}
+
+@keyframes sun {
+    0% {
+        box-shadow: inset 1rem -0.4rem 30px rgb(255, 91, 42),
+            0 0 40px 10px rgb(255, 67, 67),
+            0 0 90px 35px rgb(255, 98, 0),
+            0 0 150px 70px rgba(255, 98, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: inset 1rem -0.4rem 25px rgb(255, 91, 42),
+            0 0 20px 5px rgb(255, 67, 67),
+            0 0 40px 10px rgb(255, 98, 0),
+            0 0 60px 20px rgba(255, 98, 0, 0.6);
+    }
+}
+
+div[mode="moon"] {
+    position: absolute;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 1rem -0.7rem 10px rgba(255, 255, 255, 0.18),
+        0 0 30px 5px rgba(255, 255, 255, 0.5),
+        0 0 60px 10px rgba(255, 255, 255, 0.7),
+        0 0 90px 30px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    animation: 2s ease-in-out infinite alternate both moon;
+}
+
+@keyframes moon {
+    0% {
+        box-shadow: inset 1rem -0.7rem 10px rgba(255, 255, 255, 0.18),
+            0 0 30px 5px rgba(255, 255, 255, 0.5),
+            0 0 60px 10px rgba(255, 255, 255, 0.7),
+            0 0 90px 30px rgba(255, 255, 255, 0.9);
+    }
+
+    100% {
+        box-shadow: inset 1rem -0.7rem 5px rgba(255, 255, 255, 0.18),
+            0 0 10px 2px rgba(255, 255, 255, 0.5),
+            0 0 30px 4px rgba(255, 255, 255, 0.7),
+            0 0 50px 7px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/*todo ========== Time Complete Task ========== */
+#time {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 3rem auto 0px auto;
+
+    color: #FFF;
+    border: 2px solid #C7C7C7;
+    border-radius: 30px;
+    text-align: center;
+
+    transition: all 0.7s ease-out 0.05s;
+    opacity: 0;
+    transform: translateY(0px);
+}
+
+#time[set="true"] {
+    opacity: 1;
+    transform: translateY(30px);
+}
+
+
+/*todo ========== Add/Edit Task Bar ========== */
+header {
+    max-width: 482px;
+    min-height: 40px;
+    margin: auto;
+    padding-top: 23px;
+}
+
+#yourTask {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/** ---------- Input Task Form ---------- **/
+#yourTask input {
+    display: block;
+    width: 386px;
+    max-width: 100%;
+    height: 40px;
+    max-height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #66B4AE;
+    font-size: 16px;
+    background: #1E272E;
+    color: #66B4AE;
+}
+
+#yourTask .moon::placeholder {
+    color: #FFF;
+}
+
+#yourTask .sun::placeholder {
+    color: #3ED7B8;
+}
+
+/** ---------- Add/Edit Button ---------- **/
+#addTask {
+    display: block;
+    max-width: 86px;
+    min-height: 40px;
+    background: #66B4AE;
+    cursor: pointer;
+}
+
+#addTask p {
+    display: block;
+    max-height: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+
+/*todo ========== List Task ========== */
+main {
+    max-width: 482px;
+    min-height: 40px;
+    margin: 27px auto auto;
+    padding-bottom: 27px;
+}
+
+#menu {
+    max-width: 482px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/** ---------- Task box ---------- **/
+.taskBox {
+    display: flex;
+    justify-content: space-between;
+    min-height: 40px;
+    border-bottom: 1px solid #525252;
+}
+
+.taskBox:hover span {
+    color: #FFF;
+}
+
+.taskBox:hover .icon {
+    stroke: #A4A4A4;
+}
+
+.taskBox span {
+    display: block;
+    max-width: 386px;
+    color: #C7C7C7;
+    text-align: left;
+    font-size: 15px;
+    padding: 10px 0px;
+}
+
+.taskBox span:hover {
+    cursor: pointer;
+}
+
+.taskBox[isCompleted="true"] span {
+    text-decoration: line-through;
+    color: #676767;
+}
+
+/** ---------- Tools bar ---------- **/
+.action {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.action button {
+    width: 40px;
+    height: 100%;
+    max-height: 40px;
+    margin: auto;
+    background: #1E272E;
+    border: none;
+    align-content: space-between;
+}
+
+.action button:hover {
+    cursor: pointer;
+}
+
+.icon {
+    position: relative;
+    width: 30px;
+    max-height: 40px;
+    padding: 10px 0px;
+    margin: auto;
+}
+
+.action button:active .icon {
+    top: 1px;
+}
+
+#edit:hover .edit {
+    stroke: #22BC85;
+}
+
+#notify:hover .notify {
+    stroke: #FFED23;
+}
+
+#del:hover .del {
+    stroke: #FF6F6F;
+}
+
+
+/*todo ========== Complete Task bar ========== */
+footer {
+    max-width: 482px;
+    min-height: 13px;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+#complete {
+    color: #3ED7B8;
+    font-size: 14px;
+    font-style: italic;
+}

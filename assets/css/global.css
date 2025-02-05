@@ -1,0 +1,21 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    transition: all 0.5s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+#container {
+    max-width: 542px;
+    margin: auto;
+    min-height: 93px;
+    background: #1E272E;
+    border-radius: 20px;
+}
